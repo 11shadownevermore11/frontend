@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Бот «СВОй» — Центр «Мой бизнес» ДНР</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+<header>
+    <h2>Бот «СВОй» — Центр «Мой бизнес»</h2>
+    <div class="accessibility">
+        <span class="accessibility-label">для слабовидящих</span>
+        <button class="accessibility-btn btn-accessibility" onclick="toggleAccessibility()" aria-label="Версия для слабовидящих">
+            <span class="plus-circle-icon"></span>
+            <span class="hint-inline hint-inline-top">если у вас плохое зрение — нажмите сюда</span>
+        </button>
+
+        <span class="accessibility-label colorblind-label">для дальтоников</span>
+        <button class="colorblind-btn" onclick="toggleColorblind()" aria-label="Режим для дальтоников">
+            <span class="cb-icon"></span>
+            <span class="hint-inline hint-inline-top">режим для дальтоников</span>
+        </button>
+    </div>
+
+    <div class="header-right">
+    </div>
+</header>
+
+<div id="main-card" class="main-card welcome">
+    <!-- welcome -->
+    <div class="welcome-content" id="welcome-content">
+        <h1>Навигатор «СВОй»</h1>
+        <p>Помощь ветеранам СВО и членам их семей в оформлении социального контракта и получении мер государственной поддержки.<br>
+        Центр «Мой бизнес» ДНР — 2 000 контрактов по 350 000 рублей.</p>
+
+        <div class="landing-buttons">
+            <button class="primary-btn" onclick="startBot()">
+                Начать чат
+                <span class="hint-inline">без входа и регистрации</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- chat -->
+    <div class="chat-content" id="chat-content" style="display:none;">
+        <div class="chat-layout">
+            <div class="chat-panel">
+                <div class="chat-header">
+                    <span id="current-chat-title">Бот «СВОй» — Навигатор</span>
+                </div>
+
+                <div class="chat" id="chat"></div>
+
+                <!-- форма заявки (скрыта по умолчанию) -->
+                <div class="consult-form-area" id="consult-form" style="display:none;">
+                    <div class="consult-form-card">
+                        <h4>📝 Заявка на консультацию</h4>
+                        <input type="text" id="form-name" placeholder="Ваше имя (ФИО)" />
+                        <input type="tel" id="form-phone" placeholder="Телефон" />
+                        <div class="consult-form-actions">
+                            <button class="primary-btn consult-submit" onclick="submitConsultForm()">Отправить</button>
+                            <button class="secondary-btn consult-cancel" onclick="hideConsultForm()">Отмена</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <input id="msg" placeholder="Задайте вопрос..." />
+                    <span class="hint-inline hint-input hint-above">здесь можно писать текст</span>
+
+                    <button class="send-btn" onclick="sendMessage()" aria-label="Отправить сообщение">
+                        <span class="send-icon-alt"></span>
+                        <span class="hint-inline hint-above">отправить сообщение</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- плавающие кнопки -->
+<div class="floating-left">
+    <button class="support-phone" onclick="toggleSupport()" aria-label="Контакты">
+        <span class="phone-icon"></span>
+        <span class="hint-inline">контакты Центра «Мой бизнес»</span>
+    </button>
+</div>
+
+<!-- панель контактов -->
+<div class="support-panel" id="support-panel">
+    <h4>Контакты Центра «Мой бизнес»</h4>
+    <div class="support-contacts">
+        <p><strong>📍 Донецк:</strong><br>пр-кт Дзержинского, 13, 1 этаж<br>📞 +7 (949) 568-44-53</p>
+        <p><strong>📍 Мариуполь:</strong><br>пр-кт Металлургов, 88А<br>📞 +7 (949) 361-59-38</p>
+        <p><strong>📧</strong> inform@mb180.ru &nbsp; <strong>🌐</strong> mb180.ru</p>
+    </div>
+    <div class="support-actions">
+        <button class="support-cancel" onclick="toggleSupport()">Закрыть</button>
+    </div>
+</div>
+
+</body>
+</html>
